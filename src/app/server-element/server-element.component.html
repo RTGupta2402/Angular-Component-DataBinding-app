@@ -1,0 +1,9 @@
+<!-- custom property 'server' is declared in server-element.component.ts file -->
+<div class="panel panel-default">
+    <!-- <div class="panel-heading">{{ server.name }}</div> -->
+    <div class="panel-heading" #heading>{{ name }}</div>
+    <div class="panel-body">
+        <!-- tells angular to consider the content between opening and closing tags of our component. -->
+        <ng-content></ng-content>
+    </div> 
+</div>
