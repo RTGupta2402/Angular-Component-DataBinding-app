@@ -16,12 +16,17 @@
       <app-server-element *ngFor="let server of servers" [srvElement]="server" [name]="server.name">
         <!-- Angular ignores the content between opening and closing tag of our component by default -->
           <p #contentParagraph>
-              <strong *ngIf="server.type === 'server'; else blueprint" style = "color: green">{{ server.content }}</strong>
+              <!-- <strong *ngIf="server.type === 'server'; else blueprint" style = "color: green">{{ server.content }}</strong>
               <ng-template #blueprint>
                   <em style = "color: blue">{{ server.content }}</em>
-              </ng-template>
+              </ng-template> -->
+              <strong *appUnless="server.type === 'server'" style = "color: green">{{ server.content }}</strong>
+              <em *ngIf ="server.type === 'blueprint'" style = "color: blue">{{ server.content }}</em>
           </p>
       </app-server-element>
     </div>
   </div>
+<p appBasicHighlight>Style me with basic directive</p>
+<!-- <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style me with better directive</p> -->
+<p [appBetterHighlight]="'red'" [defaultColor]="'yellow'">Style me with better directive</p>
 </div>
